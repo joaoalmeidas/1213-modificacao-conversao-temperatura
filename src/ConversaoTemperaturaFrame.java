@@ -68,9 +68,11 @@ public class ConversaoTemperaturaFrame extends JFrame {
 					@Override
 					public void keyReleased(KeyEvent event) {
 						
-						final double temp = 5.0/9.0 * (Double.parseDouble(fahrenheit.getText()) - 32);	
+						final double tempCelsius = 5.0/9.0 * (Double.parseDouble(fahrenheit.getText()) - 32);	
+						final double tempKelvin = tempCelsius + 273.15;
 						
-						labelCelsius.setText(String.format("Celsius: %.1f", temp));
+						celsius.setText(String.format("%.1f", tempCelsius));
+						kelvin.setText(String.format("%.1f", tempKelvin));
 						
 					}
 					
