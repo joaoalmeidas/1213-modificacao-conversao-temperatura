@@ -2,6 +2,8 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -84,6 +86,7 @@ public class ConversaoTemperaturaFrame extends JFrame {
 				
 				new KeyAdapter() {
 					
+					@Override
 					public void keyReleased(KeyEvent event) {
 						
 						final double tempKelvin = Double.parseDouble(celsius.getText()) + 273.15;
@@ -102,6 +105,7 @@ public class ConversaoTemperaturaFrame extends JFrame {
 				
 				new KeyAdapter() {
 					
+					@Override
 					public void keyReleased(KeyEvent event) {
 						
 						final double tempCelsius = Double.parseDouble(kelvin.getText()) - 273.15;
@@ -110,7 +114,69 @@ public class ConversaoTemperaturaFrame extends JFrame {
 						fahrenheit.setText(String.format("%.1f", tempFahr));
 						celsius.setText(String.format("%.1f", tempCelsius));
 						
+						
+						
 					}
+					
+				}
+				
+				);
+		
+		fahrenheit.addMouseListener(
+				
+				new MouseAdapter() {
+
+					@Override
+					public void mouseEntered(MouseEvent event) {
+						
+						fahrenheit.setEditable(true);
+						celsius.setEditable(false);
+						kelvin.setEditable(false);
+						
+					}
+
+					
+					
+					
+				}
+				
+				);
+		
+		celsius.addMouseListener(
+				
+				new MouseAdapter() {
+
+					@Override
+					public void mouseEntered(MouseEvent event) {
+						
+						fahrenheit.setEditable(false);
+						celsius.setEditable(true);
+						kelvin.setEditable(false);
+						
+					}
+
+					
+					
+					
+				}
+				
+				);
+		
+		kelvin.addMouseListener(
+				
+				new MouseAdapter() {
+
+					@Override
+					public void mouseEntered(MouseEvent event) {
+						
+						fahrenheit.setEditable(false);
+						celsius.setEditable(false);
+						kelvin.setEditable(true);
+						
+					}
+
+					
+					
 					
 				}
 				
