@@ -80,6 +80,42 @@ public class ConversaoTemperaturaFrame extends JFrame {
 				
 				);
 		
+		celsius.addKeyListener(
+				
+				new KeyAdapter() {
+					
+					public void keyReleased(KeyEvent event) {
+						
+						final double tempKelvin = Double.parseDouble(celsius.getText()) + 273.15;
+						final double tempFahr = ((Double.parseDouble(celsius.getText()) * 9/5) + 32);
+						
+						fahrenheit.setText(String.format("%.1f", tempFahr));
+						kelvin.setText(String.format("%.1f", tempKelvin));
+						
+					}
+					
+				}
+				
+				);
+		
+		kelvin.addKeyListener(
+				
+				new KeyAdapter() {
+					
+					public void keyReleased(KeyEvent event) {
+						
+						final double tempCelsius = Double.parseDouble(kelvin.getText()) - 273.15;
+						final double tempFahr = ((tempCelsius * 9/5) + 32);
+						
+						fahrenheit.setText(String.format("%.1f", tempFahr));
+						celsius.setText(String.format("%.1f", tempCelsius));
+						
+					}
+					
+				}
+				
+				);
+		
 	}
 	
 }
