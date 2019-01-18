@@ -6,7 +6,7 @@ public class ConversaoTemperaturaTeste {
 		
 		ConversaoTemperaturaFrame conversao = new ConversaoTemperaturaFrame();
 		conversao.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		conversao.setSize(400, 100);
+		conversao.setSize(400, 300);
 		conversao.setVisible(true);
 		
 	}
